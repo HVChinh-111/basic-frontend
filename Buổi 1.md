@@ -904,77 +904,161 @@ Dưới đây là phần trình bày chi tiết cho:
 <table border="1px">
   <thead>
     <tr>
-      <th>Tên</th>
-      <th>Tuổi</th>
+      <th width="80px">Tên</th>
+      <th width="80px">Môn học</th>
+      <th width="60px">Điểm</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>Chính</td>
-      <td>19</td>
+      <td rowspan="2">Hoàng</td>
+      <td>Toán</td>
+      <td>9.5</td>
     </tr>
     <tr>
-      <td>Huy</td>
-      <td>18</td>
+      <td>Tin</td>
+      <td>10</td>
     </tr>
   </tbody>
 </table>
 ```
+<br>
+
+![alt text](images/table.png)
 
 ---
 
-#### 5. HTML Forms
+#### 5. HTML Form
 
-##### a. Form cơ bản
+##### 5.1. Khái niệm Form
+
+###### a. Form là gì?
+
+Form (biểu mẫu) trong HTML là **công cụ để thu thập thông tin từ người dùng** và gửi dữ liệu đến server để xử lý.
+Ví dụ: đăng ký, đăng nhập, tìm kiếm, đặt hàng,...
+
+###### b. Thẻ cơ bản
 
 ```html
 <form action="/submit" method="POST">
-  <label>Họ tên:</label>
-  <input type="text" name="name" required>
-  <input type="submit" value="Gửi">
+  <!-- các input ở đây -->
 </form>
 ```
 
-##### b. Các input type thông dụng
+| Thuộc tính | Ý nghĩa                              |
+| ---------- | ------------------------------------ |
+| `action`   | URL nơi dữ liệu được gửi đến         |
+| `method`   | Cách gửi dữ liệu (`GET` hoặc `POST`) |
 
-| Loại       | Mô tả             |
-| ---------- | ----------------- |
-| `text`     | Nhập văn bản      |
-| `email`    | Nhập email        |
-| `password` | Nhập mật khẩu     |
-| `number`   | Nhập số           |
-| `checkbox` | Chọn nhiều        |
-| `radio`    | Chọn một          |
-| `date`     | Ngày tháng        |
-| `file`     | Tải file          |
-| `submit`   | Gửi form          |
-| `reset`    | Xóa dữ liệu form  |
-| `button`   | Nút bấm tùy chỉnh |
+##### 5.2. Các phần tử trong form (form elements)
 
-##### c. Các thuộc tính quan trọng
+###### a. Thẻ `<input>`
 
-| Thuộc tính    | Mô tả                                     |
-| ------------- | ----------------------------------------- |
-| `required`    | Bắt buộc nhập                             |
-| `placeholder` | Hiển thị gợi ý trong ô input              |
-| `value`       | Giá trị mặc định                          |
-| `readonly`    | Chỉ cho đọc, không được sửa               |
-| `disabled`    | Không cho tương tác                       |
-| `maxlength`   | Giới hạn ký tự nhập                       |
-| `pattern`     | Biểu thức chính quy để kiểm tra định dạng |
+| Loại `type` | Mục đích                     | Ví dụ                                    |
+| ----------- | ---------------------------- | ---------------------------------------- |
+| `text`      | Nhập văn bản ngắn            | `<input type="text">`                    |
+| `email`     | Nhập địa chỉ email           | `<input type="email">`                   |
+| `password`  | Nhập mật khẩu                | `<input type="password">`                |
+| `number`    | Nhập số                      | `<input type="number" min="0" max="10">` |
+| `checkbox`  | Chọn nhiều mục/true or false | `<input type="checkbox">`                |
+| `radio`     | Chọn 1 trong nhiều tùy chọn  | `<input type="radio" name="gender">`     |
+| `date`      | Chọn ngày                    | `<input type="date">`                    |
+| `file`      | Tải tệp                      | `<input type="file">`                    |
+| `submit`    | Nút gửi form                 | `<input type="submit" value="Gửi">`      |
+| `reset`     | Xóa toàn bộ form             | `<input type="reset">`                   |
 
-##### d. Các thẻ khác trong form
+###### b. `<label>` – Nhãn cho input
 
 ```html
 <label for="email">Email:</label>
-<input type="email" id="email">
+<input type="email" id="email" name="email">
+```
+* for attribute trong `<label>` tốt cho SEO và accesibility
+* value trong `for` phải trùng với value của `id` trong `<input>`
 
-<select>
-  <option>Hà Nội</option>
-  <option>Hồ Chí Minh</option>
+###### c. `<textarea>` – Nhập đoạn văn dài
+
+```html
+<textarea name="note" rows="5" cols="30">Ghi chú ở đây</textarea>
+```
+
+###### d. `<select>` – Chọn từ danh sách
+
+```html
+<select name="city">
+  <option value="hn">Hà Nội</option>
+  <option value="hcm">Hồ Chí Minh</option>
 </select>
+```
 
-<textarea rows="4" cols="50"></textarea>
+##### 5.3. Các thuộc tính của input (input attributes)
+
+| Thuộc tính    | Mô tả                                    |
+| ------------- | ---------------------------------------- |
+| `required`    | Bắt buộc nhập dữ liệu                    |
+| `placeholder` | Hiển thị gợi ý bên trong ô nhập          |
+| `value`       | Giá trị mặc định                         |
+| `readonly`    | Chỉ đọc, không chỉnh sửa được            |
+| `disabled`    | Bị khóa, không sử dụng được              |
+| `maxlength`   | Giới hạn số ký tự                        |
+| `min`, `max`  | Giới hạn giá trị (cho số, ngày,...)      |
+| `pattern`     | Kiểm tra định dạng bằng regex            |
+| `checked`     | Mặc định được chọn (`checkbox`, `radio`) |
+
+###### Ví dụ:
+
+```html
+<input type="text" name="username" placeholder="Tên đăng nhập" required maxlength="20">
+```
+
+##### 5.4. Thuộc tính `action` và `method` của form
+
+###### a. `action` – nơi gửi dữ liệu
+
+```html
+<form action="/xuly" method="POST">
+```
+
+###### b. `method` – cách gửi
+
+* `GET`: dữ liệu đính kèm trong URL (dễ thấy, không bảo mật) nhưng có thể lưu lại dữ liệu
+* `POST`: dữ liệu nằm trong body (an toàn hơn)
+
+##### 5. Ví dụ form đầy đủ
+
+```html
+<form action="http://www.w3schools.com/action_page.php" method="post" target="_blank" autocomplete="on">
+  <label for="fullName">Họ tên:</label><br>
+  <input type="text" name="fullName" id="fullName"><br>
+  
+  <label for="email">Email</label><br>
+  <input type="email" name="email" id="email"><br>
+
+  <label for="password">Mật khẩu:</label><br>
+  <input type="password" name="password" id="password"><br>
+  <label for="confirmPassword">Xác nhận mật khẩu:</label><br>
+  <input type="confirmPassword" name="confirmPassword" id="confirmPassword"><br>
+
+  <label>Giới tính:</label><br>
+  <input type="radio" name="gender" id="male" valid="male">
+  <label for="male">Nam</label><br>
+  <input type="radio" name="gender" id="female" valid="female">
+  <label for="female">Nữ</label><br>
+  <input type="radio" name="gender" id="ortherGender" valid="ortherGender">
+  <label for="ortherGender">Khác</label><br>
+
+  <label for="country">Quốc gia:</label><br>
+  <select name="country" id="country">
+    <option value="thaiLand">Thái Lan</option>
+    <option value="japan">Nhật Bản</option>
+    <option value="vietnam" selected>Việt Nam</option>
+  </select><br><br>
+
+  <label for="note">Ghi chú:</label><br>
+  <textarea name="note" rows="4" cols="30"></textarea><br>
+
+  <button type="submit">Đăng ký</button>
+</form>
 ```
 
 ---
@@ -1003,3 +1087,354 @@ Dưới đây là phần trình bày chi tiết cho:
 ```html
 <script src="main.js" defer></script>
 ```
+
+Dưới đây là phần giải thích chi tiết về thẻ `div`, `span` và cách phân biệt chúng:
+
+---
+
+#### 7. Thẻ `div`, `span` và sự phân biệt 2 thẻ
+
+##### 7.1. Thẻ `<div>`
+
+###### a. Là gì?
+
+`<div>` (viết tắt của **division**) là **thẻ khối (block-level)** dùng để **gom nhóm các phần tử lại với nhau** thành một khối nội dung.
+
+###### b. Đặc điểm:
+
+* Chiếm **toàn bộ chiều ngang** của phần tử cha
+* Mỗi thẻ `<div>` nằm **trên dòng riêng**
+* Thường dùng để **chia layout**, tạo khối nội dung, bố cục, container,...
+* Dễ dàng định dạng bằng CSS
+
+###### c. Ví dụ:
+
+```html
+<div style="background-color: lightblue">
+  <h2>Giới thiệu</h2>
+  <p>Chúng tôi là nhóm phát triển web.</p>
+</div>
+```
+
+##### 7.2. Thẻ `<span>`
+
+###### a. Là gì?
+
+`<span>` là **thẻ nội dòng (inline)** dùng để **bọc nội dung nhỏ bên trong dòng văn bản**, để có thể định dạng riêng biệt bằng CSS/JS.
+
+###### b. Đặc điểm:
+
+* **Không xuống dòng**
+* Chỉ chiếm đúng chiều rộng nội dung nó chứa
+* Không có ý nghĩa về bố cục, chỉ dùng để **định dạng nội dung nhỏ**
+* Thường dùng để **tô màu, bôi đậm, tạo hiệu ứng** cho từ/ngữ bên trong đoạn văn
+
+###### c. Ví dụ:
+
+```html
+<p>Tôi thích <span style="color: red;">màu đỏ</span> và <span style="color: blue;">màu xanh</span>.</p>
+```
+
+---
+
+##### 7.3. So sánh `div` vs `span`
+
+| Tiêu chí             | `div`                       | `span`                          |
+| -------------------- | --------------------------- | ------------------------------- |
+| Loại phần tử         | Block (khối)                | Inline (nội dòng)               |
+| Chiếm chiều ngang    | Toàn bộ dòng                | Chỉ phần nội dung               |
+| Xuống dòng           | Có (luôn nằm trên dòng mới) | Không                           |
+| Mục đích chính       | Bố cục, khối nội dung       | Trang trí, định dạng nhỏ        |
+| Sử dụng phổ biến cho | Container, layout           | Định dạng từ/câu trong đoạn văn |
+
+---
+
+##### 7.4. Khi nào dùng `div`, khi nào dùng `span`?
+
+| Trường hợp                           | Dùng thẻ gì? | Giải thích                      |
+| ------------------------------------ | ------------ | ------------------------------- |
+| Chia cột, chia layout                | `div`        | Cần khối riêng biệt, dễ định vị |
+| Tô màu một từ trong đoạn văn         | `span`       | Không cần xuống dòng            |
+| Tạo khối nội dung có nền riêng       | `div`        | Làm rõ bố cục và dễ thiết kế    |
+| Đánh dấu một phần văn bản để thêm JS | `span`       | Nhẹ, nội dòng, dễ thao tác      |
+
+---
+
+### III. Các loại Element: Thẻ block, inline, phân biệt
+
+#### 1. Thẻ Block-level là gì?
+
+##### a. Khái niệm:
+
+Thẻ **block-level** (phần tử khối) là các phần tử:
+
+* **Chiếm toàn bộ chiều ngang** của vùng chứa (mặc định `width: 100%`)
+* **Luôn bắt đầu trên dòng mới**
+* Dùng để **xây dựng bố cục**, tổ chức các **khối nội dung rõ ràng**
+
+##### b. Ví dụ hiển thị:
+
+```html
+<div>Thẻ 1</div>
+<div>Thẻ 2</div>
+```
+
+Hai thẻ này sẽ hiển thị **trên 2 dòng khác nhau**.
+
+---
+
+#### 2. Thẻ Inline là gì?
+
+##### a. Khái niệm:
+
+Thẻ **inline** (phần tử nội dòng) là phần tử:
+
+* **Không xuống dòng**, hiển thị **trong cùng một dòng**
+* **Chỉ chiếm không gian vừa đủ cho nội dung**
+* Dùng để **định dạng chi tiết** trong dòng văn bản
+
+##### b. Ví dụ hiển thị:
+
+```html
+<p>Chữ <span style="color:red;">màu đỏ</span> và <strong>in đậm</strong></p>
+```
+
+---
+
+#### 3. Bảng so sánh `block` và `inline`
+
+| Tiêu chí              | Block-level Element            | Inline Element                        |
+| --------------------- | ------------------------------ | ------------------------------------- |
+| Chiếm chiều ngang     | Toàn bộ vùng chứa (full width) | Vừa đủ nội dung                       |
+| Có xuống dòng không   | ✅ Có                           | ❌ Không                               |
+| Có thể chứa thẻ gì    | Chứa được cả block và inline   | Chỉ chứa inline                       |
+| Dễ set `width/height` | ✅ Có                           | ❌ Không (trừ khi đổi display)         |
+| Ứng dụng phổ biến     | Bố cục, chia vùng              | Định dạng chi tiết trong dòng văn bản |
+
+---
+
+#### 4. Các thẻ Block phổ biến
+
+| Thẻ           | Mô tả                                        |
+| ------------- | -------------------------------------------- |
+| `<div>`       | Container chung (không có ý nghĩa ngữ nghĩa) |
+| `<p>`         | Đoạn văn                                     |
+| `<h1>`–`<h6>` | Tiêu đề                                      |
+| `<ul>`        | Danh sách không thứ tự                       |
+| `<ol>`        | Danh sách có thứ tự                          |
+| `<li>`        | Phần tử trong danh sách                      |
+| `<header>`    | Phần đầu trang / vùng                        |
+| `<footer>`    | Phần chân trang                              |
+| `<section>`   | Phân đoạn nội dung                           |
+| `<article>`   | Một đơn vị nội dung độc lập                  |
+| `<form>`      | Biểu mẫu (form gửi dữ liệu)                  |
+| `<table>`     | Bảng                                         |
+| `<nav>`       | Vùng điều hướng                              |
+
+---
+
+#### 5. Các thẻ Inline phổ biến
+
+| Thẻ        | Mô tả                              |
+| ---------- | ---------------------------------- |
+| `<span>`   | Gói nội dung nhỏ nội dòng          |
+| `<a>`      | Liên kết (anchor)                  |
+| `<strong>` | Nhấn mạnh (in đậm)                 |
+| `<em>`     | Nhấn mạnh nhẹ (in nghiêng)         |
+| `<b>`      | In đậm (không nhấn mạnh)           |
+| `<i>`      | In nghiêng (không nhấn mạnh)       |
+| `<u>`      | Gạch chân                          |
+| `<img>`    | Ảnh                                |
+| `<input>`  | Ô nhập dữ liệu                     |
+| `<label>`  | Nhãn cho input                     |
+| `<code>`   | Đoạn mã lập trình                  |
+| `<br>`     | Xuống dòng trong dòng (line break) |
+| `<small>`  | Chữ nhỏ                            |
+| `<mark>`   | Highlight                          |
+| `<sub>`    | Chỉ số dưới                        |
+| `<sup>`    | Chỉ số trên                        |
+
+---
+
+#### 6. Bonus: `inline-block` là gì?
+
+`inline-block` là một kiểu **hiển thị lai giữa inline và block** thông qua CSS:
+
+```html
+<span style="display: inline-block; width: 150px; height: 50px; background: lightgray;">
+  Tôi là inline-block
+</span>
+```
+
+| Kiểu hiển thị  | Xuống dòng | Set width/height được? | Ghi chú                                             |
+| -------------- | ---------- | ---------------------- | --------------------------------------------------- |
+| `block`        | ✅          | ✅                      | Bố cục layout chính                                 |
+| `inline`       | ❌          | ❌                      | Định dạng nhỏ trong đoạn văn                        |
+| `inline-block` | ❌          | ✅                      | Dùng khi cần set kích thước nhưng vẫn nằm cùng dòng |
+
+---
+
+### III. Semantic HTML: `header`, `footer`, `nav`, `section`, `article`, `aside`, …
+
+#### 1. Semantic HTML là gì?
+
+##### a. Định nghĩa:
+
+**Semantic HTML** (HTML ngữ nghĩa) là việc sử dụng các **thẻ HTML mang ý nghĩa rõ ràng về nội dung** mà chúng bao bọc, giúp:
+
+* Trình duyệt và máy đọc hiểu cấu trúc trang tốt hơn
+* Tăng khả năng **SEO**
+* Code dễ đọc và bảo trì hơn
+
+##### b. So sánh nhanh:
+
+**Không semantic:**
+
+```html
+<div id="header">...</div>
+<div id="content">...</div>
+<div id="footer">...</div>
+```
+
+**Có semantic:**
+
+```html
+<header>...</header>
+<main>...</main>
+<footer>...</footer>
+```
+
+---
+
+#### 2. Các thẻ semantic HTML phổ biến
+
+##### a. `<header>`
+
+* Đại diện cho phần **đầu trang** hoặc phần đầu của một khối nội dung (như `section`, `article`)
+* Thường chứa: logo, tên website, menu điều hướng, tiêu đề...
+
+Ví dụ:
+
+```html
+<header>
+  <h1>Trang Blog của tôi</h1>
+  <nav>...</nav>
+</header>
+```
+
+---
+
+##### b. `<footer>`
+
+* Đại diện cho phần **chân trang** hoặc cuối một khối nội dung
+* Thường chứa: bản quyền, liên hệ, liên kết chính sách...
+
+Ví dụ:
+
+```html
+<footer>
+  <p>&copy; 2025 Công ty ABC</p>
+</footer>
+```
+
+---
+
+##### c. `<nav>`
+
+* Đại diện cho **vùng điều hướng** (navigation)
+* Chứa các liên kết điều hướng đến các phần khác trong hoặc ngoài website
+* Thường dùng nhất là thanh điều hướng của web
+
+Ví dụ:
+
+```html
+<nav>
+  <ul>
+    <li><a href="/">Trang chủ</a></li>
+    <li><a href="/lien-he">Liên hệ</a></li>
+  </ul>
+</nav>
+```
+
+---
+
+##### d. `<main>`
+
+* Đại diện cho **nội dung chính của trang**
+* Mỗi trang chỉ nên có **một thẻ `<main>`**
+* Không nên lồng trong `header`, `footer`, `article`, `nav`...
+
+Ví dụ:
+
+```html
+<main>
+  <h2>Bài viết hôm nay</h2>
+  <p>HTML là ngôn ngữ đánh dấu...</p>
+</main>
+```
+
+---
+
+##### e. `<section>`
+
+* Đại diện cho một **phân đoạn nội dung** có cùng chủ đề
+* Có thể chứa `header`, `article`, hoặc bất kỳ nội dung gì
+
+Ví dụ:
+
+```html
+<section>
+  <h2>Giới thiệu</h2>
+  <p>Chúng tôi là nhóm lập trình viên trẻ...</p>
+</section>
+```
+
+---
+
+##### f. `<article>`
+
+* Đại diện cho **một đơn vị nội dung độc lập**, có thể chia sẻ hoặc tái sử dụng (bài viết blog, bình luận,...)
+* Có thể nằm trong `section`, `main`,...
+
+Ví dụ:
+
+```html
+<article>
+  <h3>5 mẹo học HTML</h3>
+  <p>Trong bài này, bạn sẽ học cách...</p>
+</article>
+```
+
+---
+
+##### g. `<aside>`
+
+* Đại diện cho **nội dung phụ**, liên quan nhưng không phải trọng tâm
+* Ví dụ: thanh bên, **quảng cáo**, bài viết liên quan
+
+Ví dụ:
+
+```html
+<aside>
+  <h4>Bài liên quan</h4>
+  <ul>
+    <li><a href="#">HTML cơ bản</a></li>
+  </ul>
+</aside>
+```
+
+---
+
+#### 3. Bảng tổng hợp các thẻ semantic
+
+| Thẻ         | Mô tả                              | Có thể dùng trong            |
+| ----------- | ---------------------------------- | ---------------------------- |
+| `<header>`  | Phần đầu của trang/khối nội dung   | `body`, `article`, `section` |
+| `<footer>`  | Phần chân trang hoặc của 1 section | `body`, `article`, `section` |
+| `<nav>`     | Điều hướng (menu)                  | `body`, `header`, `footer`   |
+| `<main>`    | Nội dung chính (duy nhất)          | `body`                       |
+| `<section>` | Phân đoạn nội dung theo chủ đề     | `body`, `main`, `article`    |
+| `<article>` | Đơn vị nội dung độc lập            | `main`, `section`, `body`    |
+| `<aside>`   | Nội dung phụ, ví dụ sidebar        | `body`, `main`, `article`    |
+
+---
