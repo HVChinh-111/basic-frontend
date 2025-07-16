@@ -362,4 +362,644 @@ Content-Type: text/html
 
 ---
 
-## B. 
+## B. HTML
+
+### I. Giới thiệu, Cấu trúc HTML
+
+#### 1. Khái niệm HTML
+
+##### a. HTML là gì?
+
+HTML (HyperText Markup Language) là **ngôn ngữ đánh dấu** dùng để xây dựng cấu trúc của một trang web.
+Nó giúp trình duyệt hiểu được **nội dung và bố cục** của một tài liệu web như: đoạn văn, tiêu đề, hình ảnh, liên kết,...
+
+##### b. Vai trò của HTML trong web
+
+* **Xác định nội dung**: chữ, hình ảnh, nút, bảng, form,...
+* **Tạo cấu trúc phân cấp**: như các khối nội dung, phần header, footer,...
+* **Tương tác với CSS và JavaScript**
+
+##### c. Ví dụ đơn giản
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Trang đầu tiên</title>
+  </head>
+  <body>
+    <h1>Xin chào</h1>
+    <p>Đây là đoạn văn đầu tiên.</p>
+  </body>
+</html>
+```
+
+---
+
+#### 2. HTML và XHTML
+
+##### a. HTML truyền thống
+
+* **Dễ viết**, dễ học
+* Trình duyệt **linh hoạt**, không bắt lỗi chặt
+* Viết sai cấu trúc vẫn có thể chạy
+
+##### b. XHTML (eXtensible HTML)
+
+* Là phiên bản HTML có **cú pháp nghiêm ngặt** theo chuẩn XML
+* **Yêu cầu đóng tất cả thẻ** rõ ràng
+* Cần viết đúng thứ tự và cú pháp
+
+##### c. So sánh HTML và XHTML
+
+| Tiêu chí          | HTML          | XHTML                   |
+| ----------------- | ------------- | ----------------------- |
+| Cú pháp           | Dễ tính       | Nghiêm ngặt (theo XML)  |
+| Thẻ tự đóng       | Có thể bỏ qua | Phải viết đầy đủ        |
+| Trình duyệt xử lý | Linh hoạt     | Bắt lỗi chặt            |
+| Mục tiêu          | Dành cho web  | Dễ tích hợp XML systems |
+
+---
+
+#### 3. Cấu trúc tài liệu HTML
+
+##### a. `<!DOCTYPE>`
+
+Khai báo loại tài liệu – giúp trình duyệt **hiểu đây là HTML5**
+
+```html
+<!DOCTYPE html>
+```
+
+##### b. Thẻ `<html>`
+
+Là phần **gốc bao ngoài toàn bộ tài liệu HTML**
+
+```html
+<html lang="vi">
+  ...
+</html>
+```
+
+##### c. Thẻ `<head>`
+
+Chứa các **thông tin cấu hình** cho trang: tiêu đề, charset, liên kết CSS, favicon,...
+
+```html
+<head>
+  <meta charset="UTF-8" />  
+  <title>Hoàng Văn Chính</title>
+  <link rel="icon" href="/icons/LogoProPTIT.png" type="image/png" />   
+  <meta name="description" content="Giới thiệu Hoàng Văn Chính" />
+  <meta name="keyword" content="Hoàng Văn Chính, Chính, giới thiệu" />
+  <meta name="author" content="Hoàng Văn Chính" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+```
+
+##### d. Thẻ `<body>`
+
+Chứa **nội dung hiển thị**: văn bản, hình ảnh, video, liên kết, bảng,...
+
+```html
+<body>
+  <h1>Hoàng Văn Chính</h1>
+  <p>Ngày sinh: 01/11/2005</p>
+</body>
+```
+
+---
+
+#### 4. Khái niệm: Element, Attribute, Comment
+
+##### a. Element (Phần tử)
+
+* Là **khối cấu trúc cơ bản** trong HTML
+* Thường gồm: thẻ mở, nội dung, thẻ đóng
+
+```html
+<p>Nội dung</p>
+```
+
+##### b. Attribute (Thuộc tính)
+
+* Dùng để **bổ sung thông tin** cho thẻ
+* Có dạng: `tên="giá trị"`
+
+```html
+<img src="logo.png" alt="Logo">
+```
+* Ngoài ra còn có Boolean Attribute (Thuộc tính logic):
+
+```html
+<audio controls>
+  ...
+</audio>
+```
+
+##### c. Comment (Chú thích)
+
+* Không hiển thị trên trình duyệt
+* Dùng để ghi chú trong mã HTML
+
+```html
+<!-- Đây là phần comment -->
+```
+
+---
+
+#### 5. Thẻ meta
+
+##### Tổng quan về thẻ `<meta>`
+
+* Thẻ `<meta>` nằm trong phần `<head>` của tài liệu HTML
+* Dùng để cung cấp **thông tin (metadata)** về tài liệu HTML cho **trình duyệt, công cụ tìm kiếm, mạng xã hội,...**
+* Không hiển thị trực tiếp ra trang web
+
+##### 5.1. **Thẻ meta về mã hóa ký tự (charset)**
+
+###### a. Đặt bảng mã cho trang HTML
+
+```html
+<meta charset="UTF-8">
+```
+
+* **UTF-8**: Hỗ trợ đa ngôn ngữ, bao gồm tiếng Việt
+* Nên được đặt **ngay đầu `<head>`** để tránh lỗi font
+
+##### 5.2. **Thẻ meta viewport (thiết bị di động)**
+
+###### a. Giúp trang web hiển thị đúng kích thước trên điện thoại
+
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+```
+
+* `width=device-width`: trang web rộng bằng thiết bị
+* `initial-scale=1.0`: mức zoom ban đầu
+
+##### 5.3. **Thẻ meta mô tả SEO (Search Engine Optimization)**
+
+###### a. Mô tả nội dung trang
+
+```html
+<meta name="description" content="Khóa học HTML cơ bản miễn phí cho người mới.">
+```
+
+###### b. Từ khóa liên quan đến trang (ít còn dùng, Google bỏ qua)
+
+```html
+<meta name="keywords" content="HTML, học web, lập trình frontend">
+```
+
+###### c. Tác giả trang web
+
+```html
+<meta name="author" content="Hoàng Văn Chính">
+```
+
+##### 5.4. **Thẻ meta kiểm soát hiển thị trình duyệt**
+
+###### a. Tự động tải lại trang sau X giây
+
+```html
+<meta http-equiv="refresh" content="5">
+```
+
+###### b. Chuyển hướng sau X giây
+
+```html
+<meta http-equiv="refresh" content="5; url=https://example.com">
+```
+
+##### 5.5. **Thẻ meta mạng xã hội (Open Graph – Facebook, Twitter, Zalo...)**
+
+###### a. Tiêu đề khi chia sẻ lên mạng xã hội
+
+```html
+<meta property="og:title" content="Khóa học HTML cơ bản">
+```
+
+###### b. Mô tả khi chia sẻ
+
+```html
+<meta property="og:description" content="Hướng dẫn học HTML từ số 0.">
+```
+
+###### c. Ảnh đại diện khi chia sẻ
+
+```html
+<meta property="og:image" content="https://example.com/images/thumbnail.jpg">
+```
+
+###### d. Đường dẫn gốc
+
+```html
+<meta property="og:url" content="https://example.com/khoa-hoc-html">
+```
+
+###### e. Kiểu nội dung
+
+```html
+<meta property="og:type" content="website">
+```
+
+###### f. Twitter Card (hiển thị khi share lên Twitter)
+
+```html
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Khóa học HTML cơ bản">
+<meta name="twitter:description" content="HTML cho người mới bắt đầu">
+<meta name="twitter:image" content="https://example.com/og-img.jpg">
+```
+
+---
+
+##### 6. **Meta robots (chỉ dẫn cho công cụ tìm kiếm)**
+
+###### a. Cho phép index và follow link (mặc định)
+
+```html
+<meta name="robots" content="index, follow">
+```
+
+###### b. Cấm index và follow
+
+```html
+<meta name="robots" content="noindex, nofollow">
+```
+
+###### c. Chỉ cấm index
+
+```html
+<meta name="robots" content="noindex, follow">
+```
+
+---
+
+#### 6. Thẻ Head (title, favicon, ...)
+
+##### a. `<title>`
+
+Tiêu đề trang, hiện trên tab trình duyệt và khi share link
+
+```html
+<title>Trang chủ</title>
+```
+
+##### b. `<link rel="icon" href="favicon.ico">`
+
+Hiển thị icon nhỏ trên tab trình duyệt (favicon)
+
+##### c. `<link rel="stylesheet" href="style.css">`
+
+Kết nối CSS ngoài để định dạng trang
+
+##### d. `<script src="main.js"></script>`
+
+Kết nối file JavaScript ngoài để tạo tương tác
+
+---
+
+#### 7. Thẻ Body
+
+##### a. Vai trò
+
+Chứa tất cả **nội dung hiển thị** cho người dùng:
+
+* Văn bản
+* Tiêu đề
+* Danh sách
+* Hình ảnh
+* Video
+* Liên kết
+* Form...
+
+##### b. Ví dụ nội dung trong body
+
+```html
+<body>
+  <h1>Giới thiệu</h1>
+  <p>Chúng tôi là đội ngũ phát triển web.</p>
+  <img src="team.jpg" alt="Đội ngũ">
+  <a href="/contact">Liên hệ</a>
+</body>
+```
+
+---
+
+Dưới đây là phần trình bày chi tiết cho:
+
+### II. Các thẻ HTML cơ bản
+
+#### 1. Các thẻ văn bản: `h1–h6`, `p`, `br`, `hr`, text formatting
+
+##### a. Thẻ tiêu đề: `h1` đến `h6`
+
+* Dùng để đánh dấu tiêu đề với mức độ quan trọng giảm dần
+* Một trang web nên và chỉ nên có duy nhất một thẻ `h1`
+
+```html
+<h1>Tiêu đề lớn nhất</h1>
+<h2>Tiêu đề cấp 2</h2>
+...
+<h6>Tiêu đề nhỏ nhất</h6>
+```
+
+##### b. Thẻ đoạn văn: `p`
+
+```html
+<p>Đây là một đoạn văn.</p>
+```
+
+##### c. Xuống dòng: `br`
+
+```html
+<p>Dòng 1<br>Dòng 2</p>
+```
+
+##### d. Gạch ngang chia nội dung: `hr`
+
+```html
+<p>Nội dung phần đầu</p>
+<hr>
+<p>Nội dung phần sau</p>
+```
+
+##### e. Định dạng văn bản (text formatting)
+
+| Thẻ        | Ý nghĩa                               | Ví dụ                               |
+| ---------- | ------------------------------------- | ----------------------------------- |
+| `<b>`      | In đậm (không mang nghĩa nhấn mạnh)   | `<b>Chữ đậm</b>`                    |
+| `<strong>` | In đậm, nhấn mạnh quan trọng          | `<strong>Quan trọng</strong>`       |
+| `<i>`      | In nghiêng (không nhấn mạnh)          | `<i>Chữ nghiêng</i>`                |
+| `<em>`     | In nghiêng, nhấn mạnh bằng in nghiêng | `<em>Gạch chân</em>`                |
+| `<u>`      | Gạch chân                             | `<u>Gạch chân</u>`                  |
+| `<del>`    | Gạch xóa                              | `<del>Giá cũ</del>`                 |
+| `<mark>`   | Đánh dấu (highlight)                  | `<mark>Quan trọng</mark>`           |
+| `<sub>`    | Chỉ số dưới                           | `H<sub>2</sub>O`                    |
+| `<sup>`    | Chỉ số trên                           | `X<sup>2</sup>`                     |
+| `<small>`  | Văn bản nhỏ                           | `<small>Chữ nhỏ</small>`            |
+| `<big>`    | Văn bản lớn                           | `<big>Chữ lớn</big>`                |
+| `<code>`   | Đoạn mã code                          | `<code>console.log("Hello")</code>` |
+
+---
+
+#### 2. Thẻ liên kết & media
+
+##### a. Thẻ liên kết: `a`
+
+```html
+<a href="https://example.com">Trang web</a>
+<a href="#section1">Đi đến Section 1 (trong trang)</a>
+<a href="mailto:abc@example.com">Gửi email</a>
+```
+* Ngoài ra thẻ liên kết còn có thể bọc thẻ `img` hay `video`
+
+###### Các attributes thường dùng:
+| Thuộc tính       | Ý nghĩa                                             | Giá trị ví dụ                              |
+| ---------------- | --------------------------------------------------- | ------------------------------------------ |
+| `href`           | Đường dẫn liên kết (bắt buộc)                       | `https://google.com`                       |
+| `target`         | Mở liên kết ở đâu                                   | `_self`, `_blank`, `_parent`, `_top`       |
+| `title`          | Hiển thị mô tả khi rê chuột                         | `"Xem trang Google"`                       |
+| `rel`            | Mối quan hệ với trang được liên kết (SEO & bảo mật) | `"noopener"`, `"noreferrer"`, `"nofollow"` |
+| `download`       | Tải file khi nhấn vào link                          | `"filename.pdf"`                           |
+| `type`           | Kiểu nội dung được liên kết                         | `"application/pdf"`                        |
+| `hreflang`       | Ngôn ngữ của trang đích                             | `"en"`, `"vi"`                             |
+| `referrerpolicy` | Quy định cách gửi referrer                          | `"no-referrer"`                            |
+
+##### b. Ảnh: `img`
+
+```html
+<img src="hinh.jpg" alt="Mô tả ảnh" width="300">
+```
+###### Các attributes thường dùng:
+| Thuộc tính       | Bắt buộc? | Mô tả                                                                               | Ví dụ                           |
+| ---------------- | --------- | ----------------------------------------------------------------------------------- | ------------------------------- |
+| `src`            | ✅ Có      | Đường dẫn ảnh                                                                       | `src="images/pizza.jpg"`        |
+| `alt`            | ✅ Có      | Văn bản thay thế khi ảnh lỗi hoặc dùng bởi trình đọc màn hình (SEO + accessibility) | `alt="Ảnh pizza"`               |
+| `width`          | ❌         | Đặt chiều rộng ảnh (px hoặc %)                                                      | `width="200px"`                 |
+| `height`         | ❌         | Đặt chiều cao ảnh                                                                   | `height="150px"`                |
+| `title`          | ❌         | Gợi ý khi rê chuột vào ảnh                                                          | `title="Click để xem chi tiết"` |
+| `loading`        | ❌         | Lazy loading ảnh (trì hoãn tải ảnh ngoài màn hình)                                  | `loading="lazy"`                |
+| `decoding`       | ❌         | Cách giải mã ảnh: `auto`, `async`, `sync`                                           | `decoding="async"`              |
+| `referrerpolicy` | ❌         | Chính sách gửi referrer                                                             | `referrerpolicy="no-referrer"`  |
+| `crossorigin`    | ❌         | Cho phép chia sẻ tài nguyên (CORS)                                                  | `crossorigin="anonymous"`       |
+| `usemap`         | ❌         | Gắn ảnh với bản đồ ảnh (image map)                                                  | `usemap="#map1"`                |
+| `ismap`          | ❌         | Biến ảnh thành một bản đồ ảnh đơn giản khi nằm trong thẻ `<a>`                      | `ismap`                         |
+
+
+##### c. Video: `video`
+
+```html
+<video width="400" controls>
+  <source src="video.mp4" type="video/mp4">
+  Trình duyệt không hỗ trợ video.
+</video>
+```
+###### Các attributes thường dùng:
+| Thuộc tính         | Mô tả                                                    | Ví dụ                     | Mặc định                             |
+| ------------------ | -------------------------------------------------------- | ------------------------- | ------------------------------------ |
+| `src`              | Đường dẫn tới video                                      | `src="movie.mp4"`         | Không bắt buộc nếu có thẻ `<source>` |
+| `controls`         | Hiển thị thanh điều khiển (play, pause...)               | `controls`                | ❌ (mặc định ẩn)                      |
+| `autoplay`         | Tự động phát video khi tải trang                         | `autoplay`                | ❌                                    |
+| `muted`            | Tắt tiếng mặc định (thường dùng với `autoplay`)          | `muted`                   | ❌                                    |
+| `loop`             | Phát lặp lại video sau khi kết thúc                      | `loop`                    | ❌                                    |
+| `poster`           | Ảnh thumbnail hiển thị trước khi phát                    | `poster="thumbnail.jpg"`  | Không có ảnh                         |
+| `preload`          | Chỉ định cách tải video (metadata, auto, none)           | `preload="metadata"`      | `auto`                               |
+| `width` / `height` | Kích thước hiển thị video (px)                           | `width="640px"`           | Tùy trình duyệt                      |
+| `crossorigin`      | Kiểm soát quyền truy cập tài nguyên video từ domain khác | `crossorigin="anonymous"` | Không CORS                           |
+
+##### d. Audio: `audio`
+
+```html
+<audio controls>
+  <source src="nhac.mp3" type="audio/mpeg">
+</audio>
+```
+###### Các attributes thường dùng: tương tự `<video>`
+##### e. Nhúng trang ngoài: `iframe`
+
+```html
+<iframe width="560" height="315" src="https://www.youtube.com/embed/2oCN2q1x3c4?si=hJJDEhtn-vKYGnAB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+```
+* Copy iframe trực tiếp từ share youtube hoặc gg map.
+
+---
+
+#### 3. HTML List: `ul`, `ol`, `li`
+
+##### a. Danh sách không thứ tự: `ul`
+
+```html
+<ul>
+  <li>HTML</li>
+  <li>CSS</li>
+</ul>
+```
+###### Các attributes thường dùng:
+| Thuộc tính              | Mô tả                            | Giá trị ví dụ                    | Ghi chú                                                            |
+| ----------------------- | -------------------------------- | -------------------------------- | ------------------------------------------------------------------ |
+| `type` ✅ *(deprecated)* | Kiểu ký hiệu dấu đầu dòng        | `disc`, `circle`, `square`       | ❌ Không nên dùng trong HTML5 – dùng CSS `list-style-type` thay thế |
+| `id`                    | Định danh duy nhất cho danh sách | `id="menu"`                      | Dùng để định danh phần tử                                          |
+| `class`                 | Gán lớp CSS để tạo kiểu          | `class="nav-list"`               | Thường dùng trong CSS/JS                                           |
+| `style`                 | CSS nội tuyến (inline style)     | `style="list-style-type: none;"` | Không khuyến khích nếu bạn đã dùng file CSS                        |
+| `title`                 | Tooltip hiển thị khi rê chuột    | `title="Danh sách sản phẩm"`     | Tăng trải nghiệm người dùng                                        |
+
+
+##### b. Danh sách có thứ tự: `ol`
+
+```html
+<ol>
+  <li>Bước 1</li>
+  <li>Bước 2</li>
+</ol>
+```
+###### Các attributes thường dùng:
+| Thuộc tính | Mô tả                    | Giá trị ví dụ                | Ghi chú                       |
+| ---------- | ------------------------ | ---------------------------- | ----------------------------- |
+| `type`     | Kiểu đánh số             | `1`, `a`, `A`, `i`, `I`      | ✅ Hợp lệ trong HTML5          |
+| `start`    | Số thứ tự bắt đầu        | `start="5"`                  | Sẽ bắt đầu từ số 5, thay vì 1 |
+| `title`    | Tooltip khi rê chuột     | `title="Danh sách các bước"` | Gợi ý nội dung                |
+| `reversed` | Đảo ngược thứ tự đánh số | `reversed`                   | Đếm ngược: 5, 4, 3…           |
+
+##### c. Danh sách lồng nhau
+
+```html
+<ol>
+  <li>Ngôn ngữ lập trình
+    <ul>
+      <li>Python</li>
+      <li>JavaScript</li>
+    </ul>
+  </li>
+</ol>
+```
+
+---
+
+#### 4. HTML Table
+
+##### a. Thẻ liên quan
+
+| Thẻ       | Vai trò            |
+| --------- | ------------------ |
+| `<table>` | Khởi tạo bảng      |
+| `<thead>` | Phần đầu bảng      |
+| `<tbody>` | Phần thân bảng     |
+| `<tfoot>` | Phần chân bảng     |
+| `<th>`    | Ô tiêu đề (in đậm) |
+| `<td>`    | Ô dữ liệu          |
+| `<tr>`    | Dòng trong bảng    |
+
+##### b. Các attributes thường dùng:
+| Thuộc tính | Mô tả          | Ghi chú       |                |
+| ---------- | -------------- | ------------- | -------------- |
+| `colspan`  | Gộp nhiều cột  | `colspan="2"` | ✔ Rất hay dùng |
+| `rowspan`  | Gộp nhiều hàng | `rowspan="3"` | ✔ Hay dùng     |
+
+##### c. Ví dụ:
+
+```html
+<table border="1px">
+  <thead>
+    <tr>
+      <th>Tên</th>
+      <th>Tuổi</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Chính</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <td>Huy</td>
+      <td>18</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+---
+
+#### 5. HTML Forms
+
+##### a. Form cơ bản
+
+```html
+<form action="/submit" method="POST">
+  <label>Họ tên:</label>
+  <input type="text" name="name" required>
+  <input type="submit" value="Gửi">
+</form>
+```
+
+##### b. Các input type thông dụng
+
+| Loại       | Mô tả             |
+| ---------- | ----------------- |
+| `text`     | Nhập văn bản      |
+| `email`    | Nhập email        |
+| `password` | Nhập mật khẩu     |
+| `number`   | Nhập số           |
+| `checkbox` | Chọn nhiều        |
+| `radio`    | Chọn một          |
+| `date`     | Ngày tháng        |
+| `file`     | Tải file          |
+| `submit`   | Gửi form          |
+| `reset`    | Xóa dữ liệu form  |
+| `button`   | Nút bấm tùy chỉnh |
+
+##### c. Các thuộc tính quan trọng
+
+| Thuộc tính    | Mô tả                                     |
+| ------------- | ----------------------------------------- |
+| `required`    | Bắt buộc nhập                             |
+| `placeholder` | Hiển thị gợi ý trong ô input              |
+| `value`       | Giá trị mặc định                          |
+| `readonly`    | Chỉ cho đọc, không được sửa               |
+| `disabled`    | Không cho tương tác                       |
+| `maxlength`   | Giới hạn ký tự nhập                       |
+| `pattern`     | Biểu thức chính quy để kiểm tra định dạng |
+
+##### d. Các thẻ khác trong form
+
+```html
+<label for="email">Email:</label>
+<input type="email" id="email">
+
+<select>
+  <option>Hà Nội</option>
+  <option>Hồ Chí Minh</option>
+</select>
+
+<textarea rows="4" cols="50"></textarea>
+```
+
+---
+
+#### 6. Thẻ script, HTML và JavaScript
+
+##### a. Chèn script vào HTML
+
+```html
+<script>
+  alert("Xin chào!");
+</script>
+```
+
+##### b. Kết nối file JS ngoài
+
+```html
+<script src="main.js"></script>
+```
+
+##### c. Vị trí đặt `script` nên:
+
+* Cuối thẻ `<body>` để tránh chặn hiển thị giao diện
+* Hoặc dùng thuộc tính `defer` nếu để trong `<head>`:
+
+```html
+<script src="main.js" defer></script>
+```
