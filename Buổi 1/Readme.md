@@ -115,15 +115,6 @@ Hosting là dịch vụ cho thuê **không gian trên máy chủ (server)** đ�
 2. Hosting gán một địa chỉ (domain hoặc IP) cho website.
 3. Khi người dùng truy cập → hosting nhận request → trả về trang web.
 
-**💡 Ví dụ thực tế:**
-
-Bạn viết 1 web bằng HTML + Node.js → bạn cần:
-
-* Hosting để chạy Node.js (VD: Render.com)
-* Domain trỏ vào hosting (VD: `yourweb.com`)
-* Kết quả: người khác truy cập được web bạn trên Internet 
----
-
 #### 4. IP Address
 
 ##### a. Định nghĩa
@@ -194,16 +185,6 @@ Khi bạn truy cập vào một trang web, **trình duyệt gửi yêu cầu đ�
 3. Nếu cần, server truy cập vào cơ sở dữ liệu
 4. Server xây dựng nội dung phản hồi (HTML hoặc JSON)
 5. Trình duyệt nhận response và hiển thị kết quả
-
-📄 Ví dụ response là HTML:
-
-```html
-<h1>Danh sách sản phẩm</h1>
-<ul>
-  <li>Áo sơ mi trắng</li>
-  <li>Quần jean xanh</li>
-</ul>
-```
 
 ##### d. Các loại server trong phát triển web
 
@@ -389,7 +370,7 @@ Nó giúp trình duyệt hiểu được **nội dung và bố cục** của m�
   </head>
   <body>
     <h1>Xin chào</h1>
-    <p>Đây là đoạn văn đầu tiên.</p>
+    <p>Đây là đoạn văn.</p>
   </body>
 </html>
 ```
