@@ -341,56 +341,7 @@ h1 {
 
 ---
 
-### III. Các cách nhúng CSS vào HTML
-
-#### 1. Inline CSS (trong thẻ HTML)
-
-```html
-<p style="color: red;">Hello</p>
-```
-
-##### ❌ SEO & Performance:
-
-* Gây **trùng lặp** và **khó bảo trì**.
-* Tăng dung lượng HTML.
-* **Không tối ưu caching** → ảnh hưởng **tốc độ tải trang** → giảm điểm SEO.
-
-#### 2. Internal CSS (trong thẻ `<style>`)
-
-```html
-<head>
-  <style>
-    p {
-      color: green;
-    }
-  </style>
-</head>
-```
-
-#### 3. External CSS (file `.css` riêng biệt – cách tốt nhất)
-
-```html
-<head>
-  <link rel="stylesheet" href="style.css">
-</head>
-```
-
-```css
-/* style.css */
-p {
-  color: blue;
-}
-```
-
-##### ✅ SEO & Performance:
-
-* Tách biệt rõ nội dung và trình bày
-* **Tái sử dụng** cho nhiều trang
-* **Trình duyệt có thể cache** file `.css` → tăng tốc độ tải trang → cải thiện SEO
-
----
-
-### IV. Selectors (Bộ chọn)
+### III. Selectors (Bộ chọn)
 
 #### 1. Selector cơ bản
 
@@ -417,7 +368,7 @@ Dùng `id` quá nhiều có thể gây **kém tái sử dụng**, nên ưu tiên
 
 ---
 
-### V. BEM
+### IV. BEM
 
 #### 1. BEM là gì?
 
@@ -540,7 +491,7 @@ Dùng `id` quá nhiều có thể gây **kém tái sử dụng**, nên ưu tiên
 
 ---
 
-### VI. Cách viết CSS tốt (Best Practices)
+### V. Cách viết CSS tốt (Best Practices)
 
 #### 1. Ưu tiên dùng class thay vì ID
 
