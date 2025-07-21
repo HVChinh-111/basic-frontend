@@ -1,0 +1,19 @@
+h1 {
+  text-align: right;
+  line-height: 200px;
+  color: white;
+  padding: 60px;
+}
+
+.container {
+  width: 100%;
+  height: 300px;
+  border-radius: 30px;
+  background-color: gray;
+  background-image: url(/images/proptit.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+
+  overflow: auto;
+}

@@ -1,0 +1,23 @@
+body {
+  margin: 0px 150px;
+}
+
+button {
+  background-image: linear-gradient(90deg, #ff0000, #ff8400);
+
+  /* background-clip: padding-box; */
+  background-origin: padding-box;
+
+  font-size: 50px;
+  font-weight: bold;
+
+  width: 200px;
+  height: 200px;
+  border: 7px dotted violet;
+  border-radius: 50%;
+
+  margin: 100px;
+
+  /* ---collapsing margin  ↙️--- */
+  /* display: block; */
+}

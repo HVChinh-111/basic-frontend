@@ -1,0 +1,15 @@
+body {
+  margin: 50px;
+
+  background-color: black;
+}
+
+h1 {
+  padding: 20px;
+
+  /* style width color */
+  border: solid 5px violet;
+  text-align: center;
+
+  color: white;
+}
