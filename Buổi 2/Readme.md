@@ -281,6 +281,7 @@
       - [2. Giải pháp: Reset CSS](#2-giải-pháp-reset-css)
       - [3. Ví dụ đơn giản](#3-ví-dụ-đơn-giản)
       - [4. Normalize CSS](#4-normalize-css)
+      - [5. Khác biệt giữa Normalize CSS và Reset CSS](#5-khác-biệt-giữa-normalize-css-và-reset-css)
 
 
 ## A. Khái niệm, cú pháp, selectors
@@ -2514,5 +2515,14 @@ File Normalize chính thức:
 ```html
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
 ```
+
+#### 5. Khác biệt giữa Normalize CSS và Reset CSS
+
+| Tiêu chí             | Reset CSS                           | Normalize CSS                                     |
+| -------------------- | ----------------------------------- | ------------------------------------------------- |
+| Cách hoạt động       | XÓA toàn bộ style mặc định          | GIỮ lại style hợp lý, CHỈ sửa lỗi không đồng nhất |
+| Mục tiêu             | Làm mọi thứ trở về "0"              | Làm cho mọi trình duyệt hiển thị **giống nhau**   |
+| Ảnh hưởng đến layout | Mạnh (có thể làm mất style bạn cần) | Nhẹ nhàng, an toàn hơn                            |
+| Phù hợp với          | Dự án nhỏ, test nhanh               | Dự án chuyên nghiệp, dùng thực tế                 |
 
 ---
