@@ -646,9 +646,6 @@ h1 {
   * Ghi đè style tạm thời
 
 ---
-Dưới đây là phần soạn chi tiết cho:
-
----
 ---
 
 ## C. Colors, Backgrounds, Height, Width
