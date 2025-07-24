@@ -1,0 +1,28 @@
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  background-color: rgb(150, 46, 150);
+  height: 75vh;
+  padding: 10px 0px;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+  align-items: start;
+  /* align-content: center; */
+}
+
+.item {
+  width: 200px;
+  height: 200px;
+
+  background-color: rgb(216, 191, 5);
+  border: 4px solid white;
+
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+}

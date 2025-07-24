@@ -1,0 +1,40 @@
+.dropdown button {
+  background-color: rgb(10, 1, 132);
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+  padding: 10px 60px;
+  border-radius: 10px;
+
+  cursor: pointer;
+}
+
+.content a {
+  display: block;
+  color: black;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: sans-serif;
+  padding: 10px 15px;
+}
+
+.content a:hover {
+  background-color: rgb(73, 73, 73);
+}
+
+.dropdown {
+  position: relative;
+}
+
+.content {
+  display: none;
+  background-color: gray;
+  position: absolute;
+  width: 500px;
+  box-shadow: 3px 3px 8px black;
+}
+
+.dropdown:hover .content {
+  display: block;
+}
