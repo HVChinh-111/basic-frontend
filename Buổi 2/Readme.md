@@ -8,17 +8,11 @@
     - [II. Cú pháp CSS](#ii-cú-pháp-css)
       - [1. Cấu trúc cơ bản](#1-cấu-trúc-cơ-bản)
       - [2. Ghi chú trong CSS](#2-ghi-chú-trong-css)
-    - [III. Các cách nhúng CSS vào HTML](#iii-các-cách-nhúng-css-vào-html)
-      - [1. Inline CSS (trong thẻ HTML)](#1-inline-css-trong-thẻ-html)
-        - [❌ SEO \& Performance:](#-seo--performance)
-      - [2. Internal CSS (trong thẻ `<style>`)](#2-internal-css-trong-thẻ-style)
-      - [3. External CSS (file `.css` riêng biệt – cách tốt nhất)](#3-external-css-file-css-riêng-biệt--cách-tốt-nhất)
-        - [✅ SEO \& Performance:](#-seo--performance-1)
-    - [IV. Selectors (Bộ chọn)](#iv-selectors-bộ-chọn)
+    - [III. Selectors (Bộ chọn)](#iii-selectors-bộ-chọn)
       - [1. Selector cơ bản](#1-selector-cơ-bản)
         - [🔍 SEO:](#-seo)
       - [2. Combinator Selectors (Selectors kết hợp)](#2-combinator-selectors-selectors-kết-hợp)
-    - [V. BEM](#v-bem)
+    - [IV. BEM](#iv-bem)
       - [1. BEM là gì?](#1-bem-là-gì)
       - [2. Cấu trúc tên class theo BEM](#2-cấu-trúc-tên-class-theo-bem)
       - [3. Ví dụ cụ thể](#3-ví-dụ-cụ-thể)
@@ -30,7 +24,7 @@
       - [6. So sánh BEM vs cách đặt tên không tổ chức](#6-so-sánh-bem-vs-cách-đặt-tên-không-tổ-chức)
       - [7. BEM ảnh hưởng đến SEO không?](#7-bem-ảnh-hưởng-đến-seo-không)
       - [8. Lưu ý khi áp dụng BEM](#8-lưu-ý-khi-áp-dụng-bem)
-    - [VI. Cách viết CSS tốt (Best Practices)](#vi-cách-viết-css-tốt-best-practices)
+    - [V. Cách viết CSS tốt (Best Practices)](#v-cách-viết-css-tốt-best-practices)
       - [1. Ưu tiên dùng class thay vì ID](#1-ưu-tiên-dùng-class-thay-vì-id)
       - [2. Tránh !important trừ khi cần thiết](#2-tránh-important-trừ-khi-cần-thiết)
       - [3. Ghi chú rõ ràng](#3-ghi-chú-rõ-ràng)
@@ -114,12 +108,12 @@
         - [Cách 1: Dùng `<link>` trong HTML](#cách-1-dùng-link-trong-html)
         - [Note:](#note)
         - [Cách 2: Dùng `@import` trong CSS (chậm hơn, kém tối ưu)](#cách-2-dùng-import-trong-css-chậm-hơn-kém-tối-ưu)
-        - [🔍 SEO \& Performance:](#-seo--performance-2)
+        - [🔍 SEO \& Performance:](#-seo--performance)
       - [3. `@font-face`](#3-font-face)
         - [Cú pháp:](#cú-pháp)
         - [Giải thích các thuộc tính:](#giải-thích-các-thuộc-tính)
       - [✅ Cách sử dụng](#-cách-sử-dụng)
-      - [🔍 SEO \& Performance](#-seo--performance-3)
+      - [🔍 SEO \& Performance](#-seo--performance-1)
       - [4. `font-size` – Cỡ chữ](#4-font-size--cỡ-chữ)
       - [5. `font-weight` – Độ đậm](#5-font-weight--độ-đậm)
       - [6. `font-style` – Kiểu nghiêng](#6-font-style--kiểu-nghiêng)
@@ -1562,8 +1556,9 @@ position: static | relative | absolute | fixed | sticky;
 ##### ✔️ Đặc điểm:
 
 * Vị trí cố định **so với cửa sổ trình duyệt (viewport)**.
-* Không cuộn theo trang.
+* Không cuộn theo trang (luôn ở 1 vị trí cố định so với viewport kể cả khi cuộn trang).
 * Không bị ảnh hưởng bởi phần tử cha.
+* Không chiếm không gian → loại khỏi flow bình thường.
 
 ##### Ví dụ:
 
