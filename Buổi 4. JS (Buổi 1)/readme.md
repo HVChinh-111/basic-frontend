@@ -1306,11 +1306,6 @@ Line 3`;
 
 ---
 
-
-### IV. Destructuring, Rest Parameter, Spread
-
-#### 1. **Destructuring (Phá cấu trúc)**
-
 ##### a. Định nghĩa:
 
 **Destructuring** cho phép **tách giá trị từ array hoặc object** và gán trực tiếp vào biến một cách ngắn gọn, thay vì phải truy cập từng phần tử theo cách thủ công.
